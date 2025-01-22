@@ -3,20 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swiss Revenue Solutions</title>
+    <meta name="description" content="Swiss Revenue Solutions - Solutions de gestion des revenus pour hôtels indépendants en Suisse Romande | Revenue Management Solutions for Independent Hotels in Switzerland">
+    <title>Swiss Revenue Solutions | Revenue Management Consulting</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <nav>
-            <!-- Menú de navegación -->
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo-principal.png" alt="Swiss Revenue Solutions Logo" class="nav-logo">
+            </div>
+            <div class="language-selector">
+                <button onclick="changeLanguage('fr')">FR</button>
+                <button onclick="changeLanguage('en')">EN</button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" data-fr="Accueil" data-en="Home">Accueil</a></li>
+                <li><a href="#services" data-fr="Services" data-en="Services">Services</a></li>
+                <li><a href="#about" data-fr="À Propos" data-en="About">À Propos</a></li>
+                <li><a href="#contact" data-fr="Contact" data-en="Contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
+
     <main>
-        <!-- Contenido principal -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1 data-fr="Maximisez vos revenus hôteliers" data-en="Maximize Your Hotel Revenue">
+                    Maximisez vos revenus hôteliers
+                </h1>
+                <p data-fr="Solutions expertes en gestion des revenus pour hôtels indépendants" 
+                   data-en="Expert Revenue Management Solutions for Independent Hotels">
+                    Solutions expertes en gestion des revenus pour hôtels indépendants
+                </p>
+            </div>
+        </section>
     </main>
+
     <footer>
-        <!-- Pie de página -->
+        <p>&copy; 2024 Swiss Revenue Solutions</p>
     </footer>
     <script src="js/main.js"></script>
 </body>
