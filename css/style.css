@@ -1,12 +1,11 @@
-/* Variables globales */
 :root {
-    --primary-color: #003366; /* Navy blue */
+    --primary-color: #003366;
     --secondary-color: #ffffff;
     --text-color: #333333;
     --transition-speed: 0.3s;
+    --container-width: 1200px;
 }
 
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -14,36 +13,37 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     overflow-x: hidden;
 }
 
-/* Navegación */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Navbar */
 .navbar {
     background-color: var(--primary-color);
-    padding: 1rem 2rem;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    transition: background-color var(--transition-speed);
-}
-
-.navbar.scrolled {
-    background-color: rgba(0, 51, 102, 0.95);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
 }
 
 .navbar-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: var(--container-width);
     margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .nav-logo {
@@ -52,16 +52,10 @@ body {
     transition: transform var(--transition-speed);
 }
 
-.nav-logo:hover {
-    transform: scale(1.05);
-}
-
 .nav-links {
-    list-style: none;
     display: flex;
     gap: 2rem;
-    margin: 0;
-    padding: 0;
+    list-style: none;
 }
 
 .nav-links a {
@@ -69,43 +63,17 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: color var(--transition-speed);
-    position: relative;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: var(--secondary-color);
-    transition: width var(--transition-speed);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-/* Selector de idioma */
-.language-selector {
-    display: flex;
-    gap: 0.5rem;
 }
 
 .language-selector button {
     background: none;
     border: 1px solid var(--secondary-color);
     color: var(--secondary-color);
-    padding: 5px 10px;
+    padding: 0.5rem 1rem;
     cursor: pointer;
+    margin-left: 0.5rem;
     transition: all var(--transition-speed);
     border-radius: 4px;
-}
-
-.language-selector button:hover {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
 }
 
 .language-selector button.active {
@@ -113,113 +81,113 @@ body {
     color: var(--primary-color);
 }
 
-/* Sección Hero */
+/* Hero Section */
 .hero-section {
+    min-height: 100vh;
+    background: url('../images/4valles-montana2.jpg') center/cover no-repeat;
     position: relative;
-    height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url('../images/4valles-montana2.png');
-    background-size: cover;
-    background-position: center;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-top: 60px; /* Espacio para la navbar */
+    padding-top: 80px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 .hero-content {
-    padding: 2rem;
-    max-width: 800px;
+    text-align: center;
     color: var(--secondary-color);
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1s ease forwards;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     margin-bottom: 1.5rem;
-    font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
 }
 
-.hero-content p {
+.hero-content .subtitle {
     font-size: 1.5rem;
     margin-bottom: 2rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Animaciones */
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Trust Elements */
+.trust-elements {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 3rem 0;
 }
 
-.fade-in {
-    opacity: 0;
-    transition: opacity 0.5s ease-in, transform 0.5s ease-out;
-    transform: translateY(20px);
+.trust-elements .container {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
 }
 
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+/* Services Section */
+.services-section {
+    padding: 5rem 0;
+    background-color: #f5f5f5;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-content p {
-        font-size: 1.2rem;
-    }
-
-    .navbar {
-        padding: 1rem;
-    }
-
-    .nav-logo {
-        height: 30px;
-    }
-
-    .language-selector button {
-        padding: 4px 8px;
-        font-size: 0.9rem;
-    }
+.services-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
 }
 
-/* Utilidades */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
-/* Estados activos */
-.nav-links a.active::after {
-    width: 100%;
-}
-
-/* Efectos hover */
-.hover-effect {
+.service-card {
+    background: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform var(--transition-speed);
 }
 
-.hover-effect:hover {
-    transform: translateY(-2px);
+.service-card:hover {
+    transform: translateY(-5px);
 }
 
-/* Scroll suave */
-html {
-    scroll-behavior: smooth;
+.service-card ul {
+    list-style: none;
+    margin-top: 1.5rem;
 }
 
+.service-card li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.service-card li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+/* Testimonial Section */
+.testimonial-section {
+    background: url('../images/zermatt-montana.jpg') center/cover no-repeat;
+    position: relative;
+    color: var(--secondary-color);
+    padding: 5rem 0;
+    text
+
+        
